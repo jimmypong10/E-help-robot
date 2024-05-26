@@ -1,0 +1,33 @@
+<html>
+<title>登入</title>
+</head>
+<body>
+  <h1>實驗預約系統</h1><br>
+
+<div><form method="post" class="center">
+      {% csrf_token %}
+      <div><table class="center">
+        <tr>
+          <td width="16%" align="right">帳號:</td>
+          <td width="84%"><input type="text" name="username" id="username"></td>
+        </tr>
+        <tr>
+          <td width="16%" align="right">密碼:</td>
+          <td width="84%"><input type="password" name="password" id = "password" ></td>
+        </tr>
+        <tr>
+          <div><td><p><input type="submit" name="login" value="登入"></p></td></div>
+          <div><td>
+            <p>
+              <button type="button">
+                <a href= "{% url 'index' %}">訪客登入</a>
+              </button>
+            </p>
+          </td></div>
+          <div><td><a href="{% url 'register' %}">註冊</a></td></div>  
+          
+        </tr>
+      </table></div>   
+  </form></div>
+
+</html>

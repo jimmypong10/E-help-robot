@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<>, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form method="POST" action="/cals">
+         {%csrf_token%}
+        <input type="number" name="ValueA">
+        <input type="number" name="ValueB">
+
+        <input type="submit" value="送出">
+
+
+    </form>
+</body>
+</html>

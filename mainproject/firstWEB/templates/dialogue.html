@@ -1,0 +1,27 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dialogue</title>
+</head>
+<body>
+    {% if user_input %}
+    <div>
+        <strong>User:</strong> {{ user_input }}
+    </div>
+    {% endif %}
+
+    {% if ai_response %}
+    <div>
+        <strong>AI:</strong> {{ ai_response }}
+    </div>
+    {% endif %}
+
+    <form method="post">
+        {% csrf_token %}
+        <label for="user_input">You:</label><br>
+        <input type="text" id="user_input" name="user_input"><br>
+        <button type="submit">Send</button>
+    </form>
+</body>
+</html>
