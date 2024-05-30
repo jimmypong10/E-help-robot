@@ -67,9 +67,11 @@
 {% block content %}
 <div class="chat-container">
   <div class="card flex-grow-1">
-    <div class="card-header bg-primary text-white">Chat</div>
     {% if user.is_authenticated %}
-    <div class="card-header bg-primary text-white"><b>Welcome, {{user.username}}</b>   <a style="color: yellow;" href="logout">Logout</a></div>
+    <div class="card-header bg-primary text-white"><a style="color:white" href="index">首頁   </a><a style="color: yellow;" href="logout">登出</a></div>
+    
+    
+    <div class="card-header bg-primary text-white"><b>{{user.username}}</b>的衛教機器人   </div>
     {% else %}
     <div class="card-header bg-primary text-white"><a style="color: yellow" href="login">Login</a>   <a style="color: yellow;" href="register">Register</a></div>
     {% endif %} 
@@ -93,7 +95,7 @@
             <li class="message sent">
           <div class="message-text">
             <div class="message-sender">
-              <b>You</b>
+              <b>{{user.username}}</b>
             </div>
             <div class="message-content">
               {{chat.message}}
@@ -104,7 +106,7 @@
         <li class="message received">
           <div class="message-text">
             <div class="message-sender">
-              <b>AI Chatbot</b>
+              <b>衛教機器人</b>
             </div>
             <div class="message-content">
               {{chat.response}}
@@ -125,9 +127,10 @@
   <form class="message-form">
     {%csrf_token%}
     <div class="input-group">
-      <input type="text" class="form-control message-input" placeholder="Type your message...">
+      <input type="text" class="form-control message-input" placeholder="輸入訊息">
       <div class="input-group-append">
-        <button type="submit" class="btn btn-primary btn-send">Send</button>
+        <button type="submit" class="btn btn-primary btn-send">輔助輸入</button>
+        <button type="submit" class="btn btn-primary btn-send">送出</button>
       </div>
     </div>
   </form>

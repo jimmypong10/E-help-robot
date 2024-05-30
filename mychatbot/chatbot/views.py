@@ -40,7 +40,8 @@ def chatbot(request):
         return JsonResponse({'message': message, 'response': response})
     return render(request, 'chatbot.html', {'chats': chats})
 
-
+def index(request):
+    return render(request,"index.html")
 
 def register(request):
 
@@ -71,7 +72,7 @@ def login(request):
         user = auth.authenticate(request,username=username, password=password)
         if user is not None:
             auth.login(request,user)
-            return redirect('chatbot')
+            return redirect('index')
         else:
             error_msg ="登入失敗"
             return render(request, 'login.html',{'error_message':error_msg})
