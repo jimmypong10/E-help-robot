@@ -101,8 +101,7 @@ def game(request):
 def shop(request):
     return render(request,"product.html")
 
-def try_link(request):
-    return redirect('link')
+
 
 def link_hospital(request):
     

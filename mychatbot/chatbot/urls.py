@@ -13,7 +13,6 @@ urlpatterns = [
    path("shop/", views.shop, name='shop'),
    path("link/", views.link_hospital, name='link'),
    path("detail/", views.link_detail, name='detail'),
-   path("tlink/", views.try_link, name='tlink'),
    path('api/help_input/', help_input, name='help_input'),
    # path('c_patient/',  views.create_patient_view, name='c_patient'),
    # path('patients/',  views.patients, name='patients'),
