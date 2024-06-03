@@ -1,0 +1,132 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product</title>
+    <link rel="stylesheet" href="{% static 'css/product.css' %}">
+    <link rel="stylesheet" href="{% static 'css/nav.css' %}">
+    <script type="text/javascript">
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('.carousel-container').forEach((carouselContainer, index) => {
+                let currentIndex = 0;
+                const productCarousel = carouselContainer.querySelector('.product-carousel');
+                const products = Array.from(productCarousel.querySelectorAll('.product'));
+                const totalProducts = products.length;
+
+                console.log(`Carousel ${index}: totalProducts = ${totalProducts}`);
+
+                function updateCarousel() {
+                    products.forEach((product, i) => {
+                        product.style.order = (i - currentIndex + totalProducts) % totalProducts;
+                    });
+                }
+
+                function nextSlide() {
+                    currentIndex = (currentIndex + 1) % totalProducts;
+                    updateCarousel();
+                }
+
+                function prevSlide() {
+                    currentIndex = (currentIndex - 1 + totalProducts) % totalProducts;
+                    updateCarousel();
+                }
+
+                carouselContainer.querySelector('.arrow.right').addEventListener('click', nextSlide);
+                carouselContainer.querySelector('.arrow.left').addEventListener('click', prevSlide);
+
+                updateCarousel();
+            });
+        });
+    </script>
+</head>
+<body>
+    <nav>
+        <div class="midd"><a href="{% url 'index' %}">屬於你的智慧E聊</a></div>
+        <div class="welcome"></div>
+
+        <div class="login"><a href="{% url 'log_out' %}">登出</a></div>
+    </nav>
+    <div>
+        <div class="coverflow">
+            <a href='#'><img id="ph1" src="{% static 'image/proad1.png' %}" width="1600px" height="600px"></a>
+            <a href="#"><img id="ph2" src="{% static 'image/proad2.png' %}" width="1600px" height="600px"></a>
+            <a href="#"><img id="ph3" src="{% static 'image/proad3.png' %}" width="1600px" height="600px"></a>
+        </div>
+        <div class="recomend">屬於你的產品推薦</div>
+        <div class="class">肌膚問題</div>
+        <div class="carousel-container">
+            <div class="arrow left">&#9664;</div>
+            <div class="product-carousel">
+                <div class="product">
+                    <img src="{% static 'image/skin1.png' %}" alt="產品1">
+                    <h2>B5+全面修復霜</h2>
+                    <p>NT$790</p>
+                    <button>前往購買</button>
+                </div>
+                <div class="product">
+                    <img src="{% static 'image/skin2.png' %}" alt="產品2">
+                    <h2>PAIR 淨痘乳膏</h2>
+                    <p>NT$350</p>
+                    <button>前往購買</button>
+                </div>
+                <div class="product">
+                    <img src="{% static 'image/skin3.png' %}" alt="產品3">
+                    <h2>APOSTY青春痘軟膏</h2>
+                    <p>NT$360</p>
+                    <button>前往購買</button>
+                </div>
+                <div class="product">
+                    <img src="{% static 'image/skin4.png' %}" alt="產品4">
+                    <h2>DR.WU玻尿酸精華</h2>
+                    <p>NT$860</p>
+                    <button>前往購買</button>
+                </div>
+            </div>
+            <div class="arrow right">&#9654;</div>
+        </div>
+        <div class="class">保健食品</div>
+        <div class="carousel-container">
+            <div class="arrow left">&#9664;</div>
+            <div class="product-carousel">
+                <div class="product">
+                    <img src="{% static 'image/health1.png' %}" alt="產品1">
+                    <h2>合力他命EX</h2>
+                    <p>NT$790</p>
+                    <button>前往購買</button>
+                </div>
+                <div class="product">
+                    <img src="{% static 'image/health2.png' %}" alt="產品2">
+                    <h2>DHC維他命E</h2>
+                    <p>NT$380</p>
+                    <button>前往購買</button>
+                </div>
+                <div class="product">
+                    <img src="{% static 'image/health3.png' %}" alt="產品3">
+                    <h2>DHC維他命B群</h2>
+                    <p>NT$380</p>
+                    <button>前往購買</button>
+                </div>
+                <div class="product">
+                    <img src="{% static 'image/health4.png' %}" alt="產品4">
+                    <h2>一家人益生菌</h2>
+                    <p>NT$1200</p>
+                    <button>前往購買</button>
+                </div>
+            </div>
+            <div class="arrow right">&#9654;</div>
+        </div>
+    </div>
+    <footer>
+        <div class="footerr">
+           <section class="f3">
+            <div class="copy">量身定制你的健康建議和指導<br>©YourOwnHealthEducation E Chat 2024</div>
+             
+                
+            </section>
+           
+        </div>
+    </footer>  
+</body>
+</html>

@@ -9,6 +9,7 @@ urlpatterns = [
    path('register', views.register, name='register'),
    path("index/", views.index, name='index'),
    path("game/", views.game, name='game'),
+   path("shop/", views.shop, name='shop'),
    path("link/", views.link_hospital, name='link'),
    path("detail/", views.link_detail, name='detail'),
    path("tlink/", views.try_link, name='tlink'),

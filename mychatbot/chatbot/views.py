@@ -98,6 +98,9 @@ def log_out(request):
 def game(request):
     return render(request,"game.html")
 
+def shop(request):
+    return render(request,"product.html")
+
 def try_link(request):
     return redirect('link')
 
