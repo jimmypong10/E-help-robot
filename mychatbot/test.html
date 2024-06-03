@@ -1,0 +1,30 @@
+<!-- <!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>顯示圖片在輸入框中</title>
+</head>
+<body>
+    <h2>顯示圖片在輸入框中</h2>
+    <textarea id="messageInput" rows="4" cols="50"></textarea>
+    <br><br>
+    <input type="file" id="imageUpload" accept="image/*" onchange="readfile()">
+    
+    <script>
+        function readfile() {
+            const input = document.getElementById('imageUpload');
+            const file = input.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const imgSrc = e.target.result;
+                    const imgHTML = '<img id="imagePreview" src="' + imgSrc + '" alt="圖片預覽" style="width: 300px; height: auto;"/>';
+                    document.getElementById('messageInput').value = imgHTML;
+                }
+                reader.readAsDataURL(file);
+            }
+        }
+    </script>
+</body>
+</html> -->

@@ -6,8 +6,9 @@
 
 body {
     margin: 0;
-    padding: 0;
-    background-color: #f0f0f0;
+    padding: s;
+    background: url('../image/registerbk.png') no-repeat center center fixed;
+    background-size: cover; /* 確保圖片覆蓋整個視窗 */
 
 }
 
@@ -21,7 +22,9 @@ body {
     padding: 35px 80px;
     border-radius: 80px;
     margin-top: 100px;
-    margin-bottom: 190px;
+    margin-bottom: 60px;
+    position: relative; /* 增加 position 屬性 */
+    top: 200px;
 }
 
 .card {

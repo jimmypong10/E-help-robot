@@ -128,8 +128,10 @@
     {%csrf_token%}
     <div class="input-group">
       <input type="text" class="form-control message-input" placeholder="輸入訊息">
-      <div class="input-group-append">
-        <button type="submit" class="btn btn-primary btn-send">輔助輸入</button>
+      <!-- <input type="file" id="imageUpload" accept="image/*" onchange="readfile()">
+      <img id="imagePreview" src="#" alt="圖片預覽" style="display:none; width: 300px; height: auto;"/> -->
+      <div class="input-group-append">  
+        <button type="button" class="btn btn-primary btn-send" onclick="assistInput()">輔助輸入</button>
         <button type="submit" class="btn btn-primary btn-send">送出</button>
       </div>
     </div>
@@ -139,6 +141,7 @@
   const messagesList = document.querySelector('.messages-list');
   const messageForm = document.querySelector('.message-form');
   const messageInput = document.querySelector('.message-input');
+  
 
   messageForm.addEventListener('submit', (event) => {
     event.preventDefault();
@@ -153,7 +156,7 @@
     messageItem.innerHTML = `
         <div class="message-text">
             <div class="message-sender">
-                <b>You</b>
+                <b>{{user.username}}</b>
             </div>
             <div class="message-content">
                 ${message}
@@ -179,7 +182,7 @@
         messageItem.innerHTML = `
         <div class="message-text">
             <div class="message-sender">
-              <b>AI Chatbot</b>
+              <b>衛教機器人</b>
             </div>
             <div class="message-content">
                 ${response}
@@ -190,6 +193,26 @@
       });
   });
 
+  function assistInput() {
+            const messageInput = document.querySelector('.message-input');
+            messageInput.value = '我頭痛';
+        }
+
+  // function readfile() {
+  //     const input = document.getElementById('imageUpload');
+  //     const file = input.files[0];
+  //     if (file) {
+  //         const reader = new FileReader();
+  //         reader.onload = function(e) {
+  //             const img = document.getElementById('imagePreview');
+  //             img.src = e.target.result;
+  //             img.style.display = 'block';
+  //         }
+  //         reader.readAsDataURL(file);
+  //     }
+      
+  // }
+        
 </script>
 
 {% endblock %}

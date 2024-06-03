@@ -10,3 +10,23 @@ class Chat(models.Model):
 
     def __str__(self):
         return f'{self.user.username}: {self.message}'
+    
+class PatientRecord(models.Model):
+    identifier = models.CharField(max_length=100)  # 身分證號
+    patient_id = models.CharField(max_length=100)  # 病患編號
+
+    def __str__(self):
+        return f"ID: {self.identifier}, Patient ID: {self.patient_id}"
+
+class PatientRecord_Detail(models.Model):
+    identifier = models.CharField(max_length=50)  # 身分證號
+    patient_id = models.CharField(max_length=50)  # 病患編號
+    date = models.DateField()  # 診斷日期
+    doctor_id = models.CharField(max_length=50)  # 醫生編號
+    diagnosis = models.TextField()  # 診斷內容
+
+    class Meta:
+        unique_together = ('patient_id', 'date', 'doctor_id', 'diagnosis')
+
+    def __str__(self):
+        return f"Patient {self.identifier} - Record {self.patient_id}"

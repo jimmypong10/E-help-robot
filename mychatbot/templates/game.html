@@ -1,0 +1,53 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>衛教問答小遊戲</title>
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/game.css' %}">
+    <link rel="stylesheet" href="{% static 'css/nav.css' %}">
+</head>
+<body>
+    <!-- 頂端選單 -->
+ <nav >
+    
+    <div class="midd" ><a href="{% url 'index' %}">屬於你的衛教E聊</a></div>
+    <div class="welcome">歡迎您{{user.username}}</div>
+    <div class="login"><a href="{% url 'log_out' %}">登出</a></div>
+    
+</nav>
+<a href="{% url 'chatbot' %}"><div id="chatt"> <img src="{% static 'image/chat.png' %}" alt="" width="50px" height="50px"> </div><a></div><div class="quiz-wrapper">
+    <div class="quiz-container">
+        <h1>💡衛教問答小遊戲💡</h1>
+        <div id="question-container">
+            <p id="question"></p>
+            <div class="options">
+                <button class="option" onclick="selectAnswer('A')">選項 A</button>
+                <button class="option" onclick="selectAnswer('B')">選項 B</button>
+                <button class="option" onclick="selectAnswer('C')">選項 C</button>
+            </div>
+            <button id="confirm-btn" onclick="confirmAnswer()" disabled>確定答案</button>
+        </div>
+        <div id="result"></div>
+        <div id="score"></div>
+        <div id="restart-container">
+            <button id="restart-btn" onclick="restartQuiz()" style="display: none;">重新開始</button>
+        </div>
+    </div>
+</div>
+    
+    
+    <!-- 夫特 -->
+<footer>
+    <div class="footerr">
+       <section class="f3">
+        <div class="copy">量身定制你的健康建議和指導<br>©YourOwnHealthEducation E Chat 2024</div>
+    </section>
+    </div>
+</footer>
+ <script src="{% static 'js/game.js' %}"></script>
+</body>
+</html>

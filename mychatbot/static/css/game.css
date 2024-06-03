@@ -1,0 +1,106 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    /* 将 body 设置为相对定位 */
+}
+
+.quiz-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 800px;
+    margin-bottom: -100px;
+    background: url('../image/gameback.png') no-repeat center center;
+    background-size: cover;
+    flex: 1;
+}
+
+.quiz-container {
+    background: rgba(255, 255, 255, 0.8);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 500px;
+    max-width: 90%;
+}
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.options {
+    display: flex;
+    flex-direction: column;
+}
+
+.option {
+    background: #ffbf69;
+    color: white;
+    border: none;
+    padding: 10px;
+    margin: 5px auto;
+    width: 80%;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.option:hover {
+    background: #ff9f1c;
+}
+
+.option.selected {
+    background: #5fb4ff;
+    color: rgb(255, 255, 255);
+}
+
+#result,
+#score {
+    margin-top: 20px;
+    font-size: 18px;
+}
+
+#confirm-btn {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+#confirm-btn:disabled {
+    background: #ccc;
+}
+
+#restart-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+#restart-btn {
+    padding: 10px 20px;
+    background: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+#restart-btn:hover {
+    background: #c82333;
+}

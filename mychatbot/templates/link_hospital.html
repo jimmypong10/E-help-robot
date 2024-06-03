@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Search Patient Record</title>
+</head>
+<body>
+    {% comment %} <h1>連接醫院</h1> {% endcomment %}
+    {% comment %} <form method="post">
+        {% csrf_token %}
+        <label for="identifier">Enter Identifier:</label><br>
+        <input type="text" id="identifier" name="identifier"><br><br>
+        <button type="submit">Search</button>
+    </form> {% endcomment %}
+
+  
+  {% if messages %}
+  <script>
+    {% for message in messages %}
+      alert("{{ message }}"); // 使用alert彈出訊息
+      window.location.href = "{% url 'index' %}";
+    {% endfor %}
+ 
+  
+</script>
+ {% endif %}
+</body>
+</html>

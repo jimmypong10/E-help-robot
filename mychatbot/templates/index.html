@@ -11,6 +11,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho&display=swap" rel="stylesheet">
+    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.js"></script>
     <script type="text/javascript">
       
@@ -23,7 +24,13 @@
               }
           });
       
+
       </script> 
+<script>
+  
+
+  
+</script>
     <link rel="icon" href="image/logo.ico" type="image/x-icon" />
 </head>
 
@@ -70,10 +77,12 @@
  <!-- 頂端選單 -->
  <nav >
     
-        <div class="midd" ><a href="{% url 'index' %}">屬於你的智慧E聊</a></div>
-        
+        <div class="midd" ><a href="{% url 'index' %}">屬於你的衛教E聊</a></div>
+        <div class="welcome">歡迎您{{user.username}}</div>
+        <div class="login"><a href="{% url 'detail' %}">link</a></div>
+        <div class="login"><a href="{% url 'log_out' %}">登出</a></div>
        
-        <div class="login"><a href="{% url 'login' %}">登入</a></div>
+       
         
    
 </nav>
@@ -85,7 +94,7 @@
       <div class="coverflow">
         <a href='#'><img id="ph1" src="{% static 'image/ran1.jpg' %}" width="1600px" height="600px"></a>
         <a href="#"><img id="ph2" src="{% static 'image/ran2.jpg' %}" width="1600px" height="600px"></a>
-        <a href="#"><img id="ph3" src="{% static 'image/ran3.jpg' %}" width="1600px" height="600px"></a>
+        <a href="#"><img id="ph3" src="{% static 'image/ran3.png' %}" width="1600px" height="600px"></a>
       </div>
   </div>
   
@@ -97,12 +106,9 @@
 <div class="nav">
 <div class="backk">
     <ul>
-        <div class="bigger"><li><a href="#secu"><img src="{% static 'image/med.jpg' %}" alt=""></a>用藥安全</li></div>
-        <div class="bigger"><li><a href="#heal"><img src="{% static 'image/food.jpg' %}" alt=""></a>健康飲食</li></div>
-        <li><a href="{% url 'chatbot' %}"><img src="{% static 'image/chat.png' %}" alt=""></a>智慧E聊</li>
-        <div class="bigger"><li><a href="#runn"><img src="{% static 'image/run.jpg' %}" alt=""></a>運動生活</li></div>
-        <div class="bigger"><li><a href="#ment"><img src="{% static 'image/heart.jpg' %}" alt=""></a>心理健康</li></div>
-        
+        <div class="bigger"><li><a href="{% url 'game' %}"><img src="{% static 'image/game.png' %}" alt=""></a>衛教資識王</li></div>
+        <li><a href="{% url 'chatbot' %}"><img src="{% static 'image/chat.png' %}" alt=""></a>衛教E聊</li>
+        <div class="bigger"><li><a href="#shop.html"><img src="{% static 'image/shop.png' %}" alt=""></a>商品推薦</li></div>
             
     </ul>
     
@@ -311,35 +317,41 @@
 <!-- 夫特 -->
 <footer>
     <div class="footerr">
-       <section class="f1">
+       <!-- <section class="f1">
            <div class="sd">屬於你的智慧E聊 </div>
            <div class="slogan">~量身定制你的健康建議和指導~</div>
            
        </section>
        <section class="f2">
-           <!--<div class="time">TEL:03-265-9999<br>
-               營業時間：9:00〜18:00<br>
-               公休日：周一・週二<br>
-               <hr>
-               <a href="https://www.facebook.com/CYCU.PR/?locale=zh_TW"><img src="image/fb.png"></a>
-               <a href="https://www.instagram.com/cycusa/"><img src="image/ig.png"></a>
-               <a href="mailto:8973088@gmail.com"><img src="image/em.png"></a>
-               </div>
-           <div class="copy">Copyright © 2023 Chinmi  All Rights.</div>-->
-       </section>
-       
+            <div class="hope">~歡迎使用衛教E聊~<br>
+                    希望衛教E聊能解決您的健康問題<br>願您在使用過程中能夠收穫滿滿<br>
+                    敬祝您健康快樂
+            </div>
+       </section> -->
+       <section class="f3">
+        <div class="copy">量身定制你的健康建議和指導<br>©YourOwnHealthEducation E Chat 2024</div>
+         
+            
+    </section>
     </div>
-    <div class="foot">
-    <div class="scroll">
-       <div class="text">
-       ❃ Health Care  ❃ Health Care  ❃Health Care  ❃Health Care  ❃Health Care                  
-       </div>
-       <div class="text">
-        ❃ Health Care  ❃ Health Care  ❃Health Care  ❃Health Care  ❃Health Care             
-       </div>
-     </div>
-   </div>
-</footer>  
+    <!-- <div class="foot">
+        <div class="scroll"> -->
+            <!-- <div class="text">
+             ⌁ 健 康 無 憂 , E 聊 在 手 ⌁  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp ⌁ 健 康 無 憂 , E 聊 在 手 ⌁   &nbsp&nbsp&nbsp&nbsp&nbsp  ⌁ 健 康 無 憂 , E 聊 在 手 ⌁     &nbsp&nbsp&nbsp&nbsp&nbsp  ⌁ 健 康 無 憂 , E 聊 在 手 ⌁   &nbsp&nbsp&nbsp&nbsp&nbsp  ⌁ 健 康 無 憂 , E 聊 在 手 ⌁     &nbsp&nbsp&nbsp&nbsp&nbsp
+            </div> -->
+            <!-- <div class="text">
+            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp ⌁ 健 康 無 憂 , E 聊 在 手 ⌁  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp ⌁ 健 康 無 憂 , E 聊 在 手 ⌁   &nbsp&nbsp&nbsp&nbsp&nbsp  ⌁ 健 康 無 憂 , E 聊 在 手 ⌁     &nbsp&nbsp&nbsp&nbsp&nbsp ⌁ 健 康 無 憂 , E 聊 在 手 ⌁     &nbsp&nbsp&nbsp&nbsp&nbsp     ⌁ 健 康 無 憂 , E 聊 在 手 ⌁     &nbsp&nbsp&nbsp&nbsp&nbsp
+            </div> -->
+            
+          </div> 
+          <!-- <marquee  direction="left" height="50" scrollamount="5" behavior="scroll" >
+            <p style="color:#09396a; font-size:20px; font-weight:200;">
+                ⌁ 健 康 無 憂 , E 聊 在 手 ⌁&nbsp&nbsp&nbsp&nbsp⌁ 健 康 無 憂 , E 聊 在 手 ⌁&nbsp&nbsp&nbsp&nbsp⌁ 健 康 無 憂 , E 聊 在 手 ⌁ &nbsp&nbsp&nbsp&nbsp⌁ 健 康 無 憂 , E 聊 在 手 ⌁ &nbsp&nbsp&nbsp&nbsp⌁ 健 康 無 憂 , E 聊 在 手 ⌁&nbsp&nbsp&nbsp&nbsp ⌁ 健 康 無 憂 , E 聊 在 手 ⌁ 
+
+            </p>
+        </marquee> -->
+   <!-- </div>
+</footer> -->
 <script>
     function openNav() {
       document.getElementById("car").style.width = "400px";
