@@ -28,7 +28,7 @@
                             <b>衛教機器人</b>
                         </div>
                         <div class="message-content">
-                            Hi {{user.username}},我是你的衛教機器人，任何事都可以問我喔~~
+                            Hi! 我是你的衛教機器人，任何事都可以問我喔~~
                         </div>
                     </div>
                 </li>
@@ -134,11 +134,48 @@
 
       });
   });
+const assistQuestions = [
+    '如何預防流感？',
+    '怎麼樣才算是健康的飲食？',
+    '我應該怎麼樣開始運動？',
+    '我最近一直咳嗽，是不是得了感冒？',
+    '頭痛有什麼快速緩解的方法？',
+    '怎麼健康地減重？',
+    '怎麼樣才能提高睡眠質量？',
+    '怎麼保護皮膚不乾燥？',
+    '耳朵後面按壓好痛是什麼問題？',
+    '肚臍上方很痛是甚麼問題？',
+    '肩膀一直很痛，平常還一直咳嗽',
+    '女生尿道酸痛是什麼問題？',
+    '有什麼方法可以袪痘？',
+    '喉嚨痛怎麼辦？'
 
-    function assistInput() {
+];
+
+function getRandomAssistQuestion() {
+    const randomIndex = Math.floor(Math.random() * assistQuestions.length);
+    return assistQuestions[randomIndex];
+}
+function assistInput() {
+    fetch('/api/help_input/')
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                const diagnoses = data.diagnoses.map(record => record.diagnosis).join(', ');
+                const messageInput = document.querySelector('.message-input');
+                messageInput.value = `我曾經診斷出：${diagnoses}。請問我日常需要注意什麼?。`;
+            } else {
+                const randomQuestion = getRandomAssistQuestion();
+                messageInput.value = randomQuestion;
+            }
+        })
+        .catch(error => {
+            console.error('Error fetching diagnosis records:', error);
+            const randomQuestion = getRandomAssistQuestion();
             const messageInput = document.querySelector('.message-input');
-            messageInput.value = '我頭痛';
-        }
+            messageInput.value = randomQuestion;
+        });
+}
 
 </script>
   {% endblock %}

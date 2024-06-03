@@ -34,7 +34,7 @@ def ask_openai(message):
                         "Remember to advise users to consult with healthcare professionals for medical advice."},
             {"role": "user", "content": message},
         ],
-        max_tokens=30,
+        max_tokens=150,
     )
     
     return response['choices'][0]['message']['content'].strip()
@@ -67,7 +67,7 @@ def register(request):
                 user = User.objects.create_user(username=username, email=email, password=password1)
                 user.save()
                 auth.login(request,user)
-                return redirect('login')
+                return redirect('index')
              except:
                  error_msg ="註冊失敗"
                  return render(request, 'register.html',{'error_message':error_msg})
@@ -83,7 +83,7 @@ def login(request):
         user = auth.authenticate(request,username=username, password=password)
         if user is not None:
             auth.login(request,user)
-            return redirect('index')
+            return redirect('detail')
         else:
             error_msg ="登入失敗"
             return render(request, 'login.html',{'error_message':error_msg})
@@ -111,12 +111,12 @@ def link_hospital(request):
         identifier, patient_id = find_patient_id_by_identifier(server_url, identifier_value)
 
         if patient_id:
-            # patient_record = PatientRecord.objects.create(identifier=identifier, patient_id=patient_id)
+            patient_record = PatientRecord.objects.create(identifier=identifier, patient_id=patient_id)
             messages.success(request, '連接成功')
         else:
             messages.error(request, '無病患資料')
 
-    return render(request, 'link_hospital.html' )
+    return redirect('index')
 
 
 def link_detail(request):
@@ -134,6 +134,6 @@ def link_detail(request):
         else:
             messages.error(request, '無病患資料')
 
-    return render(request, 'link_hospital.html')
+    return redirect('link')
 
   
