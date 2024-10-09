@@ -1,10 +1,14 @@
 from django.urls import path
 from chatbot import views,help_input
 from .help_input import help_input
+from .chatbot2 import chatbot2
+from .chatbot3 import chatbot3
 
 urlpatterns = [
    path('',views.login,name="login"),
    path("chatbot", views.chatbot ,name='chatbot'),
+   path("chatbot2", chatbot2 ,name='chatbot2'),
+   path("chatbot3", chatbot3 ,name='chatbot3'),
    path("login", views.login ,name='login'),
    path("logout", views.log_out,name='log_out'),
    path('register', views.register, name='register'),
