@@ -1,0 +1,80 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>register</title>
+<!--
+{% block title %}Register{% endblock %}
+
+{% block styles %}-->
+
+<!--{% endblock %}
+
+{% block content %}-->
+<link rel="stylesheet" href="{%static 'css/register.css' %}"> 
+<link rel="stylesheet" href="{%static 'css/nav.css' %}">
+
+<body>
+<!-- <header>
+  <div class="logo">衛教e聊</div>
+  <nav>
+      <ul>
+          <li><a href="index">首頁</a></li>
+          <li><a href="#">登入</a></li>
+      </ul>
+  </nav>
+</header> -->
+<div class="register-container">
+  <div class="card">
+    <div class="card-header">註冊</div>
+    <div class="card-body">
+      <form method="post" action="{% url 'register' %}">
+        {% csrf_token %}
+        <div class="form-group">
+          <!--<label for="username">姓名</label>-->
+          <input type="text" class="form-control" id="username" name="username" required placeholder="身分證號">
+        </div>
+        <div class="form-group">
+          <!--<label for="email">Email</label>-->
+          <input type="text" class="form-control" id="email" name="email" required  placeholder="email">
+        </div>
+        <div class="form-group">
+          <!--<label for="password1">密碼</label>-->
+          <input type="password" class="form-control" id="password1" name="password1" required placeholder="密碼">
+        </div>
+        <div class="form-group">
+          <!--<label for="password2">確認密碼</label>-->
+          <input type="password" class="form-control" id="password2" name="password2" required placeholder="確認密碼">
+        </div>
+        <button type="submit">註冊</button>
+        <div class="loginsign">
+          <a href="{% url 'login' %}">會員登入</a>
+      </div>
+      </form>
+    </div>
+  </div>
+</div>
+<!-- <footer>
+  <div style ="text-align:right">屬於你的衛教e聊<br>Copyright © 2024 e-Chat All Rights.</div>
+</footer> -->
+<div id="myModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <p id="modal-message"></p>
+  </div>
+</div>
+{% if error_message %}
+    <script>
+        window.alert("{{ error_message|escapejs }}");
+    </script>
+{% elif success_message %}
+    <script>
+        window.alert("{{ success_message|escapejs }}");
+    </script>
+{% endif %}
+
+
+</body>
+<!--{% endblock %}-->
