@@ -84,8 +84,9 @@ def create_chromadb_client():
 def handle_user_input(user_input, collection):
     print(collection)
     response = ollama.embeddings(prompt=user_input, model="mxbai-embed-large")  # 生成用戶輸入的嵌入向量
-    results = collection.query(query_embeddings=[response["embedding"]], n_results=3)  # 在集合中查詢最相關的三個文檔
-    data = results['documents'][0]  # 獲取最相關的文檔
+    results = collection.query(query_embeddings=[response["embedding"]], n_results=3)  # 在集合中查詢最相關的三個文件
+    data = results['documents'][0]  # 獲取最相關的文件
+    print(data)
     prompt={"You are a medical educational assistant.",
         f"Provide accurate and easy-to-understand medical informationUsing this data: {data}. ",
         "Remember to advise users to consult with healthcare professionals for medical advice."} #提示詞
