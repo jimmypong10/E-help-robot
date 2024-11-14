@@ -29,6 +29,8 @@ def ask_breeze(message):
 def chatbot3(request):
     chats = Chat3.objects.filter(user=request.user)
     if request.method == "POST":
+        print("already_executed="+str(request.session["already_executed"]))
+        request.session["already_executed"]=False
         initialize(request)
         form = botform(request.POST)
         if form.is_valid():
@@ -74,7 +76,7 @@ def setup_database(request):
         response = ollama.embeddings(model="mxbai-embed-large", prompt=content[0])  # 通過ollama生成該行文本的嵌入向量
         collection.add(ids=[str(index)], embeddings=[response["embedding"]], documents=[content[0]])  # 將文本和其嵌入向量添加到集合中
     request.session["already_executed"] = True  # 設置'already_executed'為True，表示已完成初始化
-    print(collection)
+    #print(collection)
     #request.session["collection"]=collection# 將集合保存在會話狀態中，供後續使用    
 
 #定義創建新chromadb客戶端的函數，每次需要時創建新的連接
@@ -82,11 +84,12 @@ def create_chromadb_client():
     return chromadb.Client()  # 返回一個新的chromadb客戶端實例
 
 def handle_user_input(user_input, collection):
-    print(collection)
+    #print("runned handle user")
+    #print(collection)
     response = ollama.embeddings(prompt=user_input, model="mxbai-embed-large")  # 生成用戶輸入的嵌入向量
     results = collection.query(query_embeddings=[response["embedding"]], n_results=3)  # 在集合中查詢最相關的三個文件
     data = results['documents'][0]  # 獲取最相關的文件
-    print(data)
+    #print(data)
     prompt={"You are a medical educational assistant.",
         f"Provide accurate and easy-to-understand medical informationUsing this data: {data}. ",
         "Remember to advise users to consult with healthcare professionals for medical advice."} #提示詞

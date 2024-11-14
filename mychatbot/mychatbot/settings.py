@@ -122,6 +122,8 @@ STATICFILES_DIRS = [
     BASE_DIR/"static"
 ]
 
+ALLOWED_HOSTS = ['*']
+
 FHIR_SERVER_URL = '127.0.0.1:8080/fhir'
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
