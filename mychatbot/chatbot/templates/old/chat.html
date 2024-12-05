@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot</title>
+    <link rel="stylesheet" href="../assets/css/chat.css">
+    <link rel="stylesheet" href="../assets/css/nav.css">
+</head>
+<body>
+    <!-- 頂端選單 -->
+    <nav>
+        <div class="midd">屬於你的衛教e聊</div>
+        <div class="welcome">[zoeeyyyyy]</div>
+        <div class="more">
+            <img src="../assets/images/more.png" id="menuButton">
+        </div>
+    </nav>
+
+    <!-- 左側選單 -->
+    <div id="sideMenu" class="side-menu">
+        <ul>
+            <li><a href="{% url 'index'%}">首頁</a></li>
+            <li><a href="{% url 'membercenter'%}">會員資料</a></li>
+            <li><a href="{% url 'game'%}">小遊戲</a></li>
+            <li><a href="{% url 'chat'%}">聊天機器人</a></li>
+            <li class="logout"><a href="{% url 'login'%}">登出</a></li>
+        </ul>
+    </div>
+
+    <!-- 聊天區塊 -->
+    <div class="container">
+        <main class="chat-container">
+            <div class="messages-box">
+                <ul class="messages-list"></ul>
+            </div>
+            <form class="message-form">
+                <input type="text" class="message-input" placeholder="輸入訊息...">
+                <button type="button" class="btn-auto">輔助輸入</button>
+                <button type="submit" class="btn-send"> <img src="../assets/images/submit.png" ></button>
+            </form>
+        </main>
+    </div>
+
+    <script src="../js/chat.js"></script>
+    <script src="../js/nav.js"></script>
+</body>
+</html>

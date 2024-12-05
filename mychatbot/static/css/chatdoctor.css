@@ -1,0 +1,164 @@
+/* 基本樣式 */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+/* 主容器 */
+.container {
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - 100px);
+    /* 扣除 nav 的高度 */
+    overflow: hidden;
+
+}
+
+/* 聊天容器樣式 */
+.chat-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    background-color: #f9f9f9;
+    overflow: hidden;
+    width: 100%;
+}
+
+.messages-box {
+    flex: 1;
+    padding: 15px;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    overflow-y: auto;
+    margin-bottom: 10px;
+}
+
+.messages-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.message {
+    margin-bottom: 10px;
+}
+
+.message.sent {
+    text-align: right;
+}
+
+.message .message-text {
+    display: inline-block;
+    padding: 10px 15px;
+    border-radius: 10px;
+    max-width: 70%;
+    /* 限制訊息寬度 */
+    word-wrap: break-word;
+    /* 防止訊息超出框框 */
+}
+
+.message.sent .message-text {
+    background-color: #dcf8c6;
+    color: black;
+}
+
+.message.received .message-text {
+    background-color: #ddd;
+    color: black;
+}
+
+/* 訊息輸入樣式 */
+.message-form {
+    display: flex;
+    gap: 10px;
+    padding: 10px 0;
+    background-color: #f8f9fa;
+    border-top: 1px solid #ddd;
+}
+
+.message-input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+.btn-auto {
+    background-color: #b2e988;
+    color: white;
+    border: none;
+    padding: 3px 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s;
+}
+
+.btn-send {
+    background-color: #f6c975;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s;
+}
+
+.btn-send:hover {
+    background-color: #f6c975;
+}
+
+.btn-send img {
+    width: 25px;
+}
+
+/* 響應式設計 */
+@media screen and (max-width: 768px) {
+    .container {
+        height: 100%;
+        /* 調整對話框高度，因應小螢幕 */
+        margin: 0px 0px;
+    }
+
+    .chat-container {
+        padding: 15px;
+    }
+
+    .message-input {
+        padding: 10px;
+        font-size: 1em;
+    }
+
+    .btn-send {
+        padding: 8px 15px;
+        font-size: 0.9em;
+    }
+
+    .messages-box {
+        flex: 1;
+        padding: 15px;
+        background-color: white;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        overflow-y: auto;
+        margin: 30px 0 10px 0;
+        width: 100%;
+    }
+
+    .message-form {
+        display: flex;
+        gap: 5px;
+        padding: 10px 0;
+        background-color: #f8f9fa;
+        border-top: 1px solid #ddd;
+        margin: 0 3px;
+    }
+}

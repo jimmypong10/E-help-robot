@@ -13,7 +13,7 @@ body {
         "header"
         "main"
         "section";
-    overflow: hidden;
+    overflow: scroll;
 }
 
 header {

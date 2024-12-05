@@ -1,0 +1,103 @@
+* {
+    box-sizing: border-box;
+    margin: 0px auto;
+    max-width: 1600px;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background: url('../image/registerbk.png') no-repeat center center fixed;
+    background-size: cover; /* 確保圖片覆蓋整個視窗 */
+}
+
+.register-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #8FC9DB;
+    width: 800px;
+    min-height: 57%;
+    padding: 35px 80px;
+    border-radius: 90px;
+    margin-top: 100px;
+    margin-bottom: 30px;
+    position: relative; /* 增加 position 屬性 */
+    top: 150px;
+}
+
+.card {
+    max-width: 400px;
+}
+
+.card-header {
+    background-color: #8FC9DB;
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.card-body {
+    padding: 30px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type=text],
+input[type=password] {
+    border-radius: 4px;
+    border: 0px solid #8FC9DB;
+    padding: 10px;
+    font-size: 16px;
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+    outline-color: #2F6690;
+}
+
+button[type=submit] {
+    background-color: #2F6690;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+}
+
+button[type=submit]:hover {
+    background-color: #00adcc;
+}
+
+.alert-danger {
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #f5c6cb;
+    border-radius: 4px;
+}
+
+.loginsign {
+    margin: 20px 80px -10px 80px;
+    color: white;
+}
+
+.loginsign a {
+    text-decoration: none;
+    color: #ffffff;
+    list-style: none;
+    text-decoration: none;
+    margin: 20px;
+}

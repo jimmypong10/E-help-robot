@@ -5,21 +5,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>衛教問答小遊戲</title>
-    
-
     <link rel="stylesheet" href="{% static 'css/game.css' %}">
     <link rel="stylesheet" href="{% static 'css/nav.css' %}">
 </head>
 <body>
     <!-- 頂端選單 -->
- <nav >
+    <nav>
+        <div class="midd">屬於你的衛教e聊</div>
+        <div class="welcome">[zoeeyyyyy]</div>
+        <div class="more">
+            <img src="{% static 'images/more.png'%}" id="menuButton">
+        </div>
+    </nav>
     
-    <div class="midd" ><a href="{% url 'index' %}">屬於你的衛教E聊</a></div>
-    <div class="welcome"></div>
-    <div class="login"><a href="{% url 'log_out' %}">登出</a></div>
+    <!-- 左側選單 -->
+    <div id="sideMenu" class="side-menu">
+        <ul>
+            <li><a href="{% url 'index'%}">首頁</a></li>
+            <li><a href="{% url 'membercenter'%}">會員資料</a></li>
+            <li><a href="{% url 'game'%}">小遊戲</a></li>
+            <li><a href="{% url 'chatbot'%}">聊天機器人</a></li>
+            <li class="logout"><a href="{% url 'login'%}">登出</a></li>
+        </ul>
+    </div>
     
-</nav>
-<a href="{% url 'chatbot' %}"><div id="chatt"> <img src="{% static 'image/chat.png' %}" alt="" width="50px" height="50px"> </div><a></div><div class="quiz-wrapper">
+<div class="quiz-wrapper">
     <div class="quiz-container">
         <h1>💡衛教問答小遊戲💡</h1>
         <div id="question-container">
@@ -42,12 +52,15 @@
     
     <!-- 夫特 -->
 <footer>
-    <div class="footerr">
+    <div class="footer">
        <section class="f3">
         <div class="copy">量身定制你的健康建議和指導<br>©YourOwnHealthEducation E Chat 2024</div>
     </section>
     </div>
 </footer>
- <script src="{% static 'js/game.js' %}"></script>
+<script src="{% static 'js/game.js' %}"></script>
+<script src="{% static 'js/nav.js' %}"></script>
 </body>
 </html>
+
+

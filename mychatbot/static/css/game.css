@@ -8,7 +8,6 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    /* 将 body 设置为相对定位 */
 }
 
 .quiz-wrapper {
@@ -16,9 +15,10 @@ body {
     justify-content: center;
     align-items: center;
     width: 100%;
-    min-height: 800px;
+    height: 100%;
+    min-height: 650px;
     margin-bottom: -100px;
-    background: url('../image/gameback.png') no-repeat center center;
+    background-color: #9be1f7;
     background-size: cover;
     flex: 1;
 }
@@ -48,7 +48,7 @@ h1 {
     color: white;
     border: none;
     padding: 10px;
-    margin: 5px auto;
+    margin: 8px auto;
     width: 80%;
     border-radius: 5px;
     cursor: pointer;
@@ -62,6 +62,11 @@ h1 {
 .option.selected {
     background: #5fb4ff;
     color: rgb(255, 255, 255);
+}
+
+#question {
+    margin-bottom: 15px;
+    padding: 0 10px;
 }
 
 #result,
@@ -103,4 +108,45 @@ h1 {
 
 #restart-btn:hover {
     background: #c82333;
+}
+
+/* 響應式設計：針對手機寬度為 430px */
+@media (max-width: 768px) {
+    body {
+        font-size: 14px;
+    }
+
+    .quiz-wrapper {
+        padding: 20px;
+        background-color: #9be1f7;
+    }
+
+    .quiz-container {
+        width: 90%;
+        max-width: 400px;
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 20px;
+        margin-bottom: 15px;
+    }
+
+    .option {
+        font-size: 14px;
+        padding: 8px;
+        width: 90%;
+    }
+
+    #result,
+    #score {
+        font-size: 16px;
+        margin-top: 15px;
+    }
+
+    #confirm-btn,
+    #restart-btn {
+        font-size: 14px;
+        padding: 8px 15px;
+    }
 }

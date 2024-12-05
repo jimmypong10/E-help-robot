@@ -1,104 +1,114 @@
-* {
-    box-sizing: border-box;
-    margin: 0px auto;
-    max-width: 1600px;
-}
-
+/* 通用樣式 */
 body {
+    font-family: Arial, sans-serif;
     margin: 0;
-    padding: s;
-    background: url('../image/registerbk.png') no-repeat center center fixed;
-    background-size: cover; /* 確保圖片覆蓋整個視窗 */
-
+    padding: 0;
+    box-sizing: border-box;
+    background-image: url("../images/IMG_4058.JPG"); /* 使用图片文件的名称 */
+    background-size: cover; /* 背景图片覆盖整个页面 */
+    background-position: center; /* 背景图居中 */
+    background-repeat: no-repeat; /* 防止背景图重复 */
+    height: 100%; /* 确保背景图覆盖页面高度 */
+    display: flex;
+    flex-direction: column;
 }
 
+
+html, body {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* 登入容器 */
 .login-container {
+    flex: 1; /* 保证内容区域占据剩余高度 */
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #8FC9DB;
-    width: 800px;
-    min-height: 57%;
-    padding: 35px 80px;
-    border-radius: 80px;
-    margin-top: 100px;
-    margin-bottom: 60px;
-    position: relative; /* 增加 position 屬性 */
-    top: 200px;
+    padding: 20px;
+    
+}
+
+nav .midd a {
+    color: white; /* 設置文字顏色為白色 */
+    text-decoration: none; /* 移除底線 */
+    display: block; /* 確保文字居中時的效果 */
 }
 
 .card {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
     max-width: 400px;
+    width: 100%;
 }
 
 .card-header {
-    background-color: #8FC9DB;
-    color: white;
-    font-size: 24px;
-    font-weight: bold;
+    font-size: 1.5em;
+    margin-bottom: 20px;
     text-align: center;
+    color: #333;
 }
 
 .card-body {
-    padding: 30px;
+    display: flex;
+    flex-direction: column;
 }
 
 .form-group {
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 
-label {
-    font-weight: bold;
-    display: block;
-    margin-bottom: 5px;
-}
-
-input[type=text],
-input[type=password] {
-    border-radius: 4px;
-    border: 0px solid #8FC9DB;
-    padding: 10px;
-    font-size: 16px;
+.form-control {
     width: 100%;
-    box-sizing: border-box;
-    margin-bottom: 10px;
-    outline-color: #2F6690;
+    padding: 10px;
+    font-size: 1em;
+    border: 1px solid #ccc;
+    border-radius: 4px;
 }
 
-button[type=submit] {
-    background-color: #2F6690;
+/* 按鈕樣式 */
+.btn {
+    background-color: #007bff;
     color: white;
-    font-size: 16px;
-    font-weight: bold;
-    padding: 10px 20px;
     border: none;
-    border-radius: 4px;
+    padding: 10px;
+    font-size: 1em;
     cursor: pointer;
+    border-radius: 4px;
+    text-align: center;
     width: 100%;
 }
 
-button[type=submit]:hover {
-    background-color: #00adcc;
+.btn:hover {
+    background-color: #0056b3;
 }
 
-.alert-danger {
-    background-color: #f8d7da;
-    color: #721c24;
-    padding: 10px;
-    margin-bottom: 20px;
-    border: 1px solid #f5c6cb;
-    border-radius: 4px;
-}
-
+/* 註冊連結 */
 .register {
-    margin: 20px 80px -10px 80px;
-    color: white;
+    margin-top: 10px;
+    text-align: center;
 }
 
 .register a {
+    color: #007bff;
     text-decoration: none;
-    color: #ffffff;
-    list-style: none;
-    text-decoration: none;
-    margin: 20px;
+}
+
+.register a:hover {
+    text-decoration: underline;
+}
+
+/* 頁腳樣式 */
+.footer {
+    background: #acd6ff;
+    text-align: center;
+    padding: 20px 0;
+    color: white;
+    font-size: 14px;
+    flex-shrink: 0; /* 防止被压缩 */
+    width: 100%; /* 确保页脚满版 */
+    box-sizing: border-box;
 }

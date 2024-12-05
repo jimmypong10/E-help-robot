@@ -1,0 +1,144 @@
+/* 全局樣式 */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* custom.css - 额外样式覆盖 */
+nav .midd a {
+    color: white !important; /* 设置字体颜色为白色 */
+    text-decoration: none !important; /* 去掉下划线 */
+}
+
+nav .welcome {
+    color: white !important; /* 确保右侧文字也是白色 */
+}
+
+
+/* 主内容区域 */
+/* 容器样式 */
+/* 容器样式 */
+.container {
+    flex: 1;
+    margin-top: 100px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    background: white;
+    width: 90%;
+    max-width: 400px;
+    margin: 40px auto;
+}
+
+/* 标题居中 */
+.container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+/* 信息项样式 */
+.info-item {
+    margin-bottom: 15px;
+    font-size: 1rem;
+    line-height: 1.5;
+    display: flex; /* 使用 Flexbox 布局 */
+    justify-content: flex-start; /* 左对齐内容 */
+    align-items: center;
+}
+
+.info-item strong {
+    width: 120px; /* 固定宽度让文字整齐 */
+    text-align: left; /* 左对齐标签 */
+    color: #333;
+}
+
+.info-item span {
+    flex: 1; /* 让内容占据剩余空间 */
+    text-align: left; /* 左对齐内容 */
+}
+
+/* 按钮居中 */
+.btn {
+    display: inline-block;
+    background-color: #007bff;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto; /* 按钮水平居中 */
+}
+
+/* 去掉尖角的效果 */
+.container,
+.info-item,
+.btn {
+    box-shadow: none; /* 移除阴影 */
+}
+
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal.hidden {
+    display: none;
+}
+
+.form-container {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 600px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.footer {
+    background-color: #acd6ff;
+    text-align: center;
+    padding: 20px;
+    color: white;
+    font-size: 14px;
+    flex-shrink: 0; /* 防止页脚被压缩 */
+    width: 100%; /* 确保页脚宽度满版 */
+    box-sizing: border-box; /* 包括内边距和边框在宽度计算中 */
+    position: relative; /* 避免浮动问题 */
+}
+
+/* 响应式设计调整 */
+@media (max-width: 768px) {
+    .container {
+        max-width: 90%; /* 最大宽度为屏幕宽度的 90% */
+        min-width: unset; /* 取消最小宽度限制 */
+        padding: 15px; /* 减少内边距 */
+    }
+}
+
+.footer p {
+    margin: 0;
+    font-size: 14px;
+}

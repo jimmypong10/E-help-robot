@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>病歷</title>
+    <link rel="stylesheet" href="../assets/css/medicalrecords.css">
+    <link rel="stylesheet" href="../assets/css/nav.css">
+</head>
+<body>
+    <!-- 頂部區域 -->
+    <nav>
+        <div class="midd">
+            <a>屬於你的衛教e聊</a>
+        </div>
+    </nav>
+    
+
+    <!-- 病歷 -->
+    <div class="container">
+        <h2>病歷</h2>
+        <div class="section">
+            <h3>藥物過敏史</h3>
+            <div class="checkbox-group">
+                <label><input type="checkbox" name="allergy" value="無"> 無</label>
+                <label><input type="checkbox" name="allergy" value="不知"> 不知</label>
+                <label><input type="checkbox" name="allergy" value="匹林類"> 匹林類</label>
+                <label><input type="checkbox" name="allergy" value="盤尼西林"> 盤尼西林</label>
+                <label><input type="checkbox" name="allergy" value="消炎止痛藥"> 消炎止痛藥</label>
+                <label><input type="checkbox" name="allergy" value="阿斯匹林"> 阿斯匹林</label>
+                <label><input type="checkbox" name="allergy" value="磺胺類"> 磺胺類</label>
+                <label>
+                    <input type="checkbox" name="allergy" value="其他" id="allergy-other-checkbox"> 其他
+                </label>
+                <input type="text" id="allergy-other-input" placeholder="請輸入其他過敏" class="hidden">
+                
+            </div>
+        </div>
+
+        <!-- 過去病史 -->
+        <div class="section">
+            <h3>過去病史</h3>
+            <div class="checkbox-group">
+                <label><input type="checkbox" name="illness" value="無"> 無</label>
+                <label><input type="checkbox" name="illness" value="糖尿病"> 糖尿病</label>
+                <label><input type="checkbox" name="illness" value="高血壓"> 高血壓</label>
+                <label><input type="checkbox" name="illness" value="氣喘"> 氣喘</label>
+                <label><input type="checkbox" name="illness" value="慢性肺病"> 慢性肺病</label>
+                <label>
+                    <input type="checkbox" name="illness" value="其他" id="illness-other-checkbox"> 其他
+                </label>
+                <input type="text" id="illness-other-input" placeholder="請輸入其他病史" class="hidden">
+            </div>
+        </div>
+
+        <!-- 長期用藥 -->
+        <div class="section">
+            <h3>長期用藥</h3>
+            <label><input type="radio" name="medication" value="否"> 否</label>
+            <label><input type="radio" name="medication" value="是"> 是</label>
+            <input type="text" id="medication-other" placeholder="請輸入藥物名稱" class="hidden">
+        </div>
+
+        <!-- 習慣 -->
+        <div class="section">
+            <h3>習慣</h3>
+            <div class="checkbox-group">
+                <label><input type="checkbox" name="habit" value="吸菸"> 吸菸</label>
+                <label><input type="checkbox" name="habit" value="喝酒"> 喝酒</label>
+                <label><input type="checkbox" name="habit" value="檳榔"> 檳榔</label>
+                <label>
+                    <input type="checkbox" name="habit" value="其他" id="habit-other-checkbox"> 其他
+                </label>
+                <input type="text" id="habit-other-input" placeholder="請輸入其他習慣" class="hidden">
+            </div>
+        </div>
+
+        <!-- 懷孕 -->
+        <div class="section">
+            <h3>懷孕</h3>
+            <label><input type="radio" name="pregnancy" value="無"> 無</label>
+            <label><input type="radio" name="pregnancy" value="有"> 有</label>
+            <label><input type="radio" name="pregnancy" value="計畫中"> 計畫中</label>
+        </div>
+
+        <!-- 按鈕 -->
+        <button class="btn" onclick="saveData()">儲存</button>
+        <button class="btn cancel" onclick="closeForm()">取消</button>
+    </div>
+
+   <!-- 同意書彈跳視窗 -->
+<div id="consentModal" class="modal hidden">
+    <div class="modalcontent">
+        <h2>同意書</h2>
+        <p>請確認您已閱讀並同意以下條款。</p>
+        <div class="scrollable-content">
+            <p>歡迎使用「屬於你的衛教e聊」系統。本系統旨在提供健康教育相關服務，並以人工智慧技術回應您的健康問題。在使用本系統前，請您仔細閱讀以下條款，若您繼續使用本系統，將視為您已充分理解並同意以下內容：</p>
+            <h3>資料蒐集與使用</h3>
+            <ul>
+                <li>您填寫於本系統的個人健康資訊（包括但不限於病史、過敏藥物、長期用藥與健康習慣等），僅作為以下用途：</li>
+                <ul>
+                    <li>提供個性化健康建議。</li>
+                    <li>進行統計分析，改善系統服務品質。</li>
+                    <li>作為健康教育與醫療研究的參考資料（資料將匿名化處理）。</li>
+                </ul>
+            </ul>
+            <h3>隱私與安全</h3>
+            <ul>
+                <li>本系統會妥善保護您的個人資訊，採用適當的技術與管理措施以防止未經授權的存取、洩漏或使用。</li>
+                <li>您的資訊僅限於系統內部使用，不會向第三方分享，除非經您書面同意或符合法律要求。</li>
+            </ul>
+            <h3>使用者責任</h3>
+            <ul>
+                <li>您應保證所提供的資訊真實、準確，若因提供虛假或不完整的資訊導致的任何後果，使用者需自行承擔責任。</li>
+                <li>本系統所提供的建議僅供參考，不能取代專業醫療診斷或治療。若有健康問題，請務必諮詢專業醫療人員。</li>
+            </ul>
+            <h3>系統同意</h3>
+            <ul>
+                <li>使用本系統即視為您同意本條款中所述之所有內容。</li>
+                <li>若您不同意本條款，請勿使用本系統或提供個人健康相關資訊。</li>
+            </ul>
+            <h3>條款修改</h3>
+            <ul>
+                <li>本系統有權對本條款進行更新，若有重大修改，將另行通知使用者。</li>
+            </ul>
+            <p>若您有任何疑問或擔憂，請隨時與我們聯繫。</p>
+        </div>
+        <div class="checkbox-group">
+            <label>
+                <input type="checkbox" id="consentCheckbox"> 我同意以上內容
+            </label>
+        </div>
+        <div class="modal-buttons">
+            <button class="btn" id="agreeButton" disabled>確認</button>
+            <button class="btn cancel" onclick="closeConsentModal()">取消</button>
+        </div>
+    </div>
+</div>
+
+
+
+    <script src="{% static 'js/r.js'%}"></script>
+</body>
+</html>

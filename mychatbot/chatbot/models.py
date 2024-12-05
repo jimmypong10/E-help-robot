@@ -30,14 +30,19 @@ class PatientRecord_Detail(models.Model):
 
     def __str__(self):
         return f"Patient {self.identifier} - Record {self.patient_id}"
-class Chat2(models.Model):  #聊天機器人用
+class Chat2(models.Model):  #醫生聊天機器人用
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     message = models.TextField()
     response = models.TextField()
     image = models.ImageField(upload_to='images/save/',name='image',default=None, blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
 
-class Chat3(models.Model):  #聊天機器人3用
+class Chat3(models.Model):  #病患聊天機器人用
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    message = models.TextField()
+    response = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+class ChatDoc(models.Model):  #醫生聊天機器人用
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     message = models.TextField()
     response = models.TextField()

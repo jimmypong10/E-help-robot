@@ -1,28 +1,41 @@
 {% load static %}
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>衛教E聊</title>
-    <link rel="stylesheet" href="{% static 'css/chatbot.css' %}">
-    {% comment %} <link rel="stylesheet" href="{% static 'css/nav.css' %}"> {% endcomment %}
-
+    <title>Chatbot</title>
+    <link rel="stylesheet" href="{% static 'css/chat.css'%}">
+    <link rel="stylesheet" href="{% static 'css/nav.css'%}">
+    <link rel="stylesheet" href="{% static 'css/chatbot.css'%}">
 </head>
 <body>
-    <header>
-        <nav>
-            <div class="name"><h3><a href="{% url 'index' %}">屬於你的專屬醫療</a></h3></div>
-            <div class="logout"><a href="{% url 'log_out' %}">登出</a></div>
-        </nav>
-    </header>
+    <!-- 頂端選單 -->
+    <nav>
+        <div class="midd">屬於你的衛教e聊</div>
+        <div class="welcome">[zoeeyyyyy]</div>
+        <div class="more">
+            <img src="{% static 'images/more.png'%}" id="menuButton">
+        </div>
+    </nav>
+
+    <!-- 左側選單 -->
+    <div id="sideMenu" class="side-menu">
+        <ul>
+            <li><a href="{% url 'index'%}">首頁</a></li>
+            <li><a href="{% url 'membercenter'%}">會員資料</a></li>
+            <li><a href="{% url 'game'%}">小遊戲</a></li>
+            <li><a href="{% url 'chatbot'%}">聊天機器人</a></li>
+            <li class="logout"><a href="{% url 'login'%}">登出</a></li>
+        </ul>
+    </div>
+
     {% block content %}
     <main>
-        <div class="message_contain">
-            <ul class="list-unstyled messages-list">
+        <div class="chat-container">
+            <ul class="messages-list">
                 <li class="chat received">
-                    <div class="robot"><img src="{% static 'image/robot.png' %}" alt="" class="logo"></div>
+                    <div class="robot"><img src="{% static 'images/robot.png' %}" alt="" class="logo"></div>
                     <div class="received_container">
                         <div class="message-sender">
                             <b>衛教機器人</b>
@@ -43,10 +56,10 @@
                         {{chat.message}}
                       </div>
                     </div>
-                    <div class="user"><img src="{% static 'image/people.png' %}" alt="" class="userpic"></div>
+                    <div class="user"><img src="{% static 'images/people.png' %}" alt="" class="userpic"></div>
                 </li>
                 <li class="chat received">
-                    <div class="robot"><img src="{% static 'image/robot.png' %}" alt="" class="logo"></div>
+                    <div class="robot"><img src="{% static 'images/robot.png' %}" alt="" class="logo"></div>
                     <div class="received_container">
                       <div class="message-sender">
                         <b>衛教機器人</b>
@@ -63,13 +76,13 @@
     </main>
     <section>
 
-      <form action="{% url 'chatbot3' %}" method="POST" class="message-form">
+      <form action="{% url 'chatbot' %}" method="POST" class="message-form">
         {% csrf_token %}
         <div class="userinput">
             <input type="text" class="form-control message-input" name="message" placeholder="輸入訊息...">
             <button type="button" class="btn btn-primary btn-send" onclick="assistInput()">輔助輸入</button>
 
-            <button type="submit"><img src="{% static 'image/send.png' %}" alt=""></button>
+            <button type="submit"><img src="{% static 'images/submit.png' %}" alt=""></button>
         </div>
     </form>
     </section>
@@ -100,12 +113,12 @@
                   ${message}
               </div>
           </div>
-          <div class="user"><img src="{% static 'image/people.png' %}" alt="" class="userpic"></div>`;
+          <div class="user"><img src="{% static 'images/people.png' %}" alt="" class="userpic"></div>`;
       messagesList.appendChild(messageItem);
       messagesList.scrollTop = messagesList.scrollHeight;
       messageInput.value = '';
   
-      fetch("{% url 'chatbot3' %}", {
+      fetch("{% url 'chatbot' %}", {
           method: 'POST',
           headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
           body: new URLSearchParams({
@@ -119,7 +132,7 @@
           const messageItem = document.createElement('li');
           messageItem.classList.add('chat','received');
           messageItem.innerHTML = `
-          <div class="robot"><img src="{% static 'image/robot.png' %}" alt="" class="logo"></div>
+          <div class="robot"><img src="{% static 'images/robot.png' %}" alt="" class="logo"></div>
           <div class="received_container">
               <div class="message-sender">
                   <b>衛教機器人</b>
@@ -178,5 +191,7 @@ function assistInput() {
 }
 
 </script>
+<script src="{% static 'js/chat.js'%}"></script>
+<script src="{% static 'js/nav.js'%}"></script>
   {% endblock %}
 </html>

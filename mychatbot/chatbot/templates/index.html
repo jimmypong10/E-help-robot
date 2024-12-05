@@ -5,13 +5,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>屬於你的智慧E聊</title>
+    <title>屬於你的衛教E聊</title>
     <link rel="stylesheet" href="{% static 'css/index.css' %}">
     <link rel="stylesheet" href="{% static 'css/nav.css' %}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho&display=swap" rel="stylesheet">
-    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.js"></script>
     <script type="text/javascript">
       
@@ -24,14 +23,8 @@
               }
           });
       
-
       </script> 
-<script>
-  
-
-  
-</script>
-    <link rel="icon" href="image/logo.ico" type="image/x-icon" />
+    <link rel="icon" href="{% static 'images/logo.ico'%}" type="image/x-icon" />
 </head>
 
 <style>
@@ -74,28 +67,32 @@
     
 <body>
     
- <!-- 頂端選單 -->
- <nav >
+    <nav>
+        <div class="midd">屬於你的衛教e聊</div>
+        <div class="welcome">{{user.username}}</div>
+        <div class="more">
+            <img src="{% static 'images/more.png'%}" id="menuButton">
+        </div>
+    </nav>
     
-        <div class="midd" ><a href="{% url 'index' %}">屬於你的衛教E聊</a></div>
-        <div class="welcome"></div>
-        {% comment %} 歡迎您{{user.username}} {% endcomment %}
-        {% comment %} <div class="login"><a href="{% url 'detail' %}">link</a></div> {% endcomment %}
-        <div class="login"><a href="{% url 'log_out' %}">登出</a></div>
-       
-       
-        
-   
-</nav>
-<a href="{% url 'chatbot' %}"><div id="chatt"> <img src="{% static 'image/chat.png' %}" alt="" width="50px" height="50px"> </div><a></div>
+    <!-- 左側選單 -->
+    <div id="sideMenu" class="side-menu">
+        <ul>
+            <li><a href="{% url 'index'%}">首頁</a></li>
+            <li><a href="{% url 'membercenter'%}">會員資料</a></li>
+            <li><a href="{% url 'game'%}">小遊戲</a></li>
+            <li><a href="{% url 'chatbot'%}">聊天機器人</a></li>
+            <li class="logout"><a href="{% url 'login'%}">登出</a></li>
+        </ul>
+    </div>
 <br>
 <!-- 首頁動態圖 文字 -->
   <div>
     
       <div class="coverflow">
-        <a href='#'><img id="ph1" src="{% static 'image/ran1.jpg' %}" width="1600px" height="600px"></a>
-        <a href="#"><img id="ph2" src="{% static 'image/ran2.jpg' %}" width="1600px" height="600px"></a>
-        <a href="#"><img id="ph3" src="{% static 'image/ran3.png' %}" width="1600px" height="600px"></a>
+        <a href=''><img id="ph1" src="{% static 'images/ran1.jpg'%}" width="1600px" height="630px"></a>
+        <a href=""><img id="ph2" src="{% static 'images/ran3.png'%}" width="1600px" height="630px"></a>
+        <a href=""><img id="ph3" src="{% static 'images/ran2.jpg'%}" width="1600px" height="630px"></a>
       </div>
   </div>
   
@@ -104,17 +101,27 @@
     
 </div>
 
-<div class="nav">
-<div class="backk">
-    <ul>
-        <div class="bigger"><li><a href="{% url 'game' %}"><img src="{% static 'image/game.png' %}" alt=""></a>衛教資識王</li></div>
-        <li><a href="{% url 'chatbot' %}"><img src="{% static 'image/chat.png' %}" alt=""></a>衛教E聊</li>
-        <div class="bigger"><li><a href="{% url 'shop' %}"><img src="{% static 'image/shop.png' %}" alt=""></a>商品推薦</li></div>
-            
-    </ul>
-    
-    
-</div>
+<div class="nav">       
+    <div class="backk">
+        <div class="game-box">
+            <a href="{% url 'game'%}">
+                <img src="{% static 'images/game.png'%}" alt="" class="gameicon">
+                <p>衛教資識王</p>
+            </a>
+        </div>
+        <div class="chat-box">
+            <a href="{% url 'chatbot'%}">
+                <img src="{% static 'images/chat.png'%}" alt="" class="chaticon">
+                <p>衛教E聊</p>
+            </a>
+        </div>
+        <div class="game-box">
+            <a href="{% url 'game'%}">  <!--沒做的東西-->
+                <img src="{% static 'images/personal.png'%}" alt="" class="gameicon">
+                <p>個人檔案</p>
+            </a>
+        </div>
+    </div>
 </div>
 
 
@@ -162,7 +169,7 @@
     <div class="m1">       
         
             <h2>👨‍⚕️生 病 找 醫 師 , 用 藥 找 藥 師👩‍⚕️<br></h2>
-            <p>&nbsp</p>
+          
             <div class="mm1"><b>⚠️注 意 藥 物 相 互 作 用⚠️</b><br>
                 <p>&nbsp</p>
                 同時使用多種藥物時,請向醫生或藥師咨詢可能的藥物相互作用,以避免不良反應</div>
@@ -179,62 +186,63 @@
 
 
 <!--健康飲食-->
-<div class="heal" id="heal">
-    健康飲食
-</div>
-<div class="food">
-    <div class="rr">
-        <h3>🥗</h3>
-        <p><h1>蔬菜比例要增加</h1></p>
-        <p>火鍋湯品多加蔬菜</p>
-        <p>蔬菜攝取量增多,營養均衡促健康</p>
-        <p>每餐多吃蔬菜,讓你的身體更輕盈有活力！</p>
+<div class="foodtop">
+    <div class="heal" id="heal">
+        健康飲食
     </div>
+    <div class="food">
+        <div class="rr">
+            <h3>🥗</h3>
+            <p><h1>蔬菜比例要增加</h1></p>
+            <p>火鍋湯品多加蔬菜</p>
+            <p>蔬菜攝取量增多,營養均衡促健康</p>
+            <p>每餐多吃蔬菜,讓你的身體更輕盈有活力！</p>
+        </div>
 
-    <div class="rr">
-        <h3>🐟</h3>
-        <p><h1>豆魚蛋肉少加工</h1></p>
-        <p>減少加工食品,自然營養更健康</p>
-        <p>天然食材，給你最純粹的美味與能量</p>
-        <p>讓你的飲食更安心放心~</p>
-    </div>
+        <div class="rr">
+            <h3>🐟</h3>
+            <p><h1>豆魚蛋肉少加工</h1></p>
+            <p>減少加工食品,自然營養更健康</p>
+            <p>天然食材，給你最純粹的美味與能量</p>
+            <p>讓你的飲食更安心放心~</p>
+        </div>
 
-    <div class="rr">
-        <h3>🥔</h3>
-        <p><h1>全榖雜糧未精緻</h1></p>
-        <p>未精緻全榖雜糧取代精緻澱粉</p>
-        <p>保留天然營養與纖維,助你維持健康體重</p>
-        <p>降低慢性病風險,打造健康飲食新習慣</p>
-        
-    </div>
-
-    <div class="rr">
-        <h3>🍎</h3>
-        <p><h1>水果每餐拳頭大</h1></p>
-        <p>水果取代零食點心,仍需控制攝取量</p>
-        <p>補充維生素和纖維</p>
-        <p>助你活力滿滿，輕鬆迎接每一天！</p>
-    </div>
+        <div class="rr">
+            <h3>🥔</h3>
+            <p><h1>全榖雜糧未精緻</h1></p>
+            <p>未精緻全榖雜糧取代精緻澱粉</p>
+            <p>保留天然營養與纖維,助你維持健康體重</p>
+            <p>降低慢性病風險,打造健康飲食新習慣</p>
             
-    <div class="rr">
-        <h3>🍭</h3>
-        <p><h1>零食點心應適量</h1></p>
-        <p>多吃堅果,選擇健康零食</p>
-        <p>避免過量攝取糖分和脂肪</p>
-        <p>讓身體更健康</p>
-    </div>
+        </div>
 
-    <div class="rr">
-        <h3>🍻</h3>
-        <p><h1>飲料酒飲要控制</h1></p>
-        <p>飲料與酒飲適量為宜</p>
-        <p>以無糖飲品為主,控制飲用頻率</p>
-        <p>讓身體更輕盈,生活更健康</p>
-    </div>
-    
+        <div class="rr">
+            <h3>🍎</h3>
+            <p><h1>水果每餐拳頭大</h1></p>
+            <p>水果取代零食點心,仍需控制攝取量</p>
+            <p>補充維生素和纖維</p>
+            <p>助你活力滿滿，輕鬆迎接每一天！</p>
+        </div>
+                
+        <div class="rr">
+            <h3>🍭</h3>
+            <p><h1>零食點心應適量</h1></p>
+            <p>多吃堅果,選擇健康零食</p>
+            <p>避免過量攝取糖分和脂肪</p>
+            <p>讓身體更健康</p>
+        </div>
 
+        <div class="rr">
+            <h3>🍻</h3>
+            <p><h1>飲料酒飲要控制</h1></p>
+            <p>飲料與酒飲適量為宜</p>
+            <p>以無糖飲品為主,控制飲用頻率</p>
+            <p>讓身體更輕盈,生活更健康</p>
+        </div>
+        
+
+    </div>
 </div>
-
 
 <!--運動生活-->
 <div class="runn" id="runn">
@@ -309,7 +317,6 @@
         </div>
         <br>
         <br>
-        <br>
         <h4>📞2 4 小 時 免 付 費 心 理 支 持 服 務 專 線 : 1 9 2 5 依 舊 愛 我<!--<div style="color: #2C73C5";> 1925</div>--></h4>
     </div>
   </div>
@@ -317,74 +324,13 @@
 <div class="clear"></div>
 <!-- 夫特 -->
 <footer>
-    <div class="footerr">
-       <!-- <section class="f1">
-           <div class="sd">屬於你的智慧E聊 </div>
-           <div class="slogan">~量身定制你的健康建議和指導~</div>
-           
-       </section>
-       <section class="f2">
-            <div class="hope">~歡迎使用衛教E聊~<br>
-                    希望衛教E聊能解決您的健康問題<br>願您在使用過程中能夠收穫滿滿<br>
-                    敬祝您健康快樂
-            </div>
-       </section> -->
+    <div class="footer">
        <section class="f3">
         <div class="copy">量身定制你的健康建議和指導<br>©YourOwnHealthEducation E Chat 2024</div>
-         
-            
     </section>
     </div>
-    <!-- <div class="foot">
-        <div class="scroll"> -->
-            <!-- <div class="text">
-             ⌁ 健 康 無 憂 , E 聊 在 手 ⌁  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp ⌁ 健 康 無 憂 , E 聊 在 手 ⌁   &nbsp&nbsp&nbsp&nbsp&nbsp  ⌁ 健 康 無 憂 , E 聊 在 手 ⌁     &nbsp&nbsp&nbsp&nbsp&nbsp  ⌁ 健 康 無 憂 , E 聊 在 手 ⌁   &nbsp&nbsp&nbsp&nbsp&nbsp  ⌁ 健 康 無 憂 , E 聊 在 手 ⌁     &nbsp&nbsp&nbsp&nbsp&nbsp
-            </div> -->
-            <!-- <div class="text">
-            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp ⌁ 健 康 無 憂 , E 聊 在 手 ⌁  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp ⌁ 健 康 無 憂 , E 聊 在 手 ⌁   &nbsp&nbsp&nbsp&nbsp&nbsp  ⌁ 健 康 無 憂 , E 聊 在 手 ⌁     &nbsp&nbsp&nbsp&nbsp&nbsp ⌁ 健 康 無 憂 , E 聊 在 手 ⌁     &nbsp&nbsp&nbsp&nbsp&nbsp     ⌁ 健 康 無 憂 , E 聊 在 手 ⌁     &nbsp&nbsp&nbsp&nbsp&nbsp
-            </div> -->
-            
-          </div> 
-          <!-- <marquee  direction="left" height="50" scrollamount="5" behavior="scroll" >
-            <p style="color:#09396a; font-size:20px; font-weight:200;">
-                ⌁ 健 康 無 憂 , E 聊 在 手 ⌁&nbsp&nbsp&nbsp&nbsp⌁ 健 康 無 憂 , E 聊 在 手 ⌁&nbsp&nbsp&nbsp&nbsp⌁ 健 康 無 憂 , E 聊 在 手 ⌁ &nbsp&nbsp&nbsp&nbsp⌁ 健 康 無 憂 , E 聊 在 手 ⌁ &nbsp&nbsp&nbsp&nbsp⌁ 健 康 無 憂 , E 聊 在 手 ⌁&nbsp&nbsp&nbsp&nbsp ⌁ 健 康 無 憂 , E 聊 在 手 ⌁ 
-
-            </p>
-        </marquee> -->
-   <!-- </div>
-</footer> -->
-<script>
-    function openNav() {
-      document.getElementById("car").style.width = "400px";
-      document.getElementById("main").style.marginLeft = "0px";
-    }
-    
-    function closeNav() {
-      document.getElementById("car").style.width = "0";
-      document.getElementById("main").style.marginLeft= "0px";
-    }
-    </script>
-       
-       <script>
-        function minus(number){
-            var num=Number(document.getElementsByClassName('qty')[number].value);
-            if(num>1){
-                document.getElementsByClassName('qty')[number].value= num-1;
-            }
-        }
-        function add(number){
-            var num=Number(document.getElementsByClassName('qty')[number].value);
-            if(num<100){
-                document.getElementsByClassName('qty')[number].value= num+1;
-            }
-        }
-    </script>
-    <script>
-        function star(obj){
-          document.getElementById('star').value = obj.value;
-                   }
-    </script>
-
-    
+</footer>
+<script src="{% static 'js/game.js' %}"></script>
+<script src="{% static 'js/nav.js' %}"></script>
 </body>
 </html>

@@ -1,69 +1,66 @@
 {% load static %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-TW">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>login</title>
+    <title>登入</title>
+    <!-- 引入样式表 -->
     <link rel="stylesheet" href="{%static 'css/login.css' %}"> 
     <link rel="stylesheet" href="{%static 'css/nav.css' %}">
-</head>    
-
-
-<!--{% block title %}Login{% endblock %}-->
-
-<!--{% block styles %}-->
-
-<!--{% endblock %}-->
-
-<!--{% block content %}-->
+</head>
 <body>
-  <!-- <header>
-    <div class="logo">衛教e聊</div>
+    <!-- 导航栏 -->
     <nav>
-        <ul>
-            <li><a href="index">首頁</a></li>
-            <li><a href="#">登入</a></li>
-        </ul>
+        <div class="midd">
+            <a>屬於你的衛教e聊</a>
+        </div>
     </nav>
-  </header> -->
-<div class="login-container">
-  <div class="card">
-    <div class="card-header">登入</div>
-    <div class="card-body">
-      <!--{% if error_message %}-->
-        <!--<div class="alert alert-danger" role="alert">{{ error_message }}</div>-->
-      <!--{% endif %}-->
-      <form method="post" action="{% url 'login' %}">
-        {% csrf_token %}
-        <div class="form-group">
-          <!--<label for="username">Username</label>-->
-          <input type="text" class="form-control" id="username" name="username" required placeholder="身分證號">
+
+    <!-- 登入區域 -->
+    <main class="login-container">
+        <div class="card">
+            <div class="card-header">登入</div>
+            <div class="card-body">
+                <!-- 錯誤提示 -->
+                <div class="alert alert-danger" role="alert" style="display: none;">請輸入正確的帳號密碼</div>
+                
+                <!-- 登入表单 -->
+                <form method="post" action="{% url 'login' %}">
+                    {% csrf_token %}
+                    <div class="form-group">
+                      <!--<label for="username">Username</label>-->
+                      <input type="text" class="form-control" id="username" name="username" required placeholder="帳號名稱">
+                    </div>
+                    <div class="form-group">
+                      <!--<label for="password">Password</label>-->
+                      <input type="password" class="form-control" id="password" name="password" required required placeholder="密碼">
+                    </div>
+                    <button type="submit"class="btn">登入</button>
+                    <div class="register">
+                      <a href="{% url 'register' %}">會員註冊</a>
+                  </div>
+                  </form>
+            </div>
         </div>
-        <div class="form-group">
-          <!--<label for="password">Password</label>-->
-          <input type="password" class="form-control" id="password" name="password" required required placeholder="密碼">
-        </div>
-        <button type="submit">登入</button>
-        <div class="register">
-          <a href="{% url 'register' %}">會員註冊</a>
-      </div>
-      </form>
-    </div>
-  </div>
-</div>
-<!-- <footer>
-<div style ="text-align:right">屬於你的衛教e聊<br>Copyright © 2024 e-Chat All Rights.</div>
-</footer> -->
-</div>
-{% if error_message %}
+    </main>
+
+    <!-- 頁腳 -->
+    <footer class="footer">
+        <p>© 2024 屬於你的智慧e聊 | 健康管理從這裡開始</p>
+    </footer>
+
+    <!-- 提示訊息脚本 -->
     <script>
-        window.alert("{{ error_message|escapejs }}");
+        // 示例：显示错误消息（可删除或修改）
+        const errorMessage = ""; // 设置为非空字符串以显示错误消息
+        const successMessage = ""; // 设置为非空字符串以显示成功消息
+
+        if (errorMessage) {
+            alert(errorMessage);
+        } else if (successMessage) {
+            alert(successMessage);
+        }
     </script>
-{% elif success_message %}
-    <script>
-        window.alert("{{ success_message|escapejs }}");
-    </script>
-{% endif %}
 </body>
-<!--{% endblock %}-->
+</html>

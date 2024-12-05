@@ -1,0 +1,390 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>屬於你的智慧E聊</title>
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    <link rel="stylesheet" href="{% static 'css/nav.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho&display=swap" rel="stylesheet">
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.js"></script>
+    <script type="text/javascript">
+      
+
+          $(window).scroll(function() {
+              if ( $(this).scrollTop() > 450){
+                  $('#chatt').fadeIn();
+              } else {
+                  $('#chatt').fadeOut();
+              }
+          });
+      
+
+      </script> 
+<script>
+  
+
+  
+</script>
+    <link rel="icon" href="image/logo.ico" type="image/x-icon" />
+</head>
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Shippori+Mincho&display=swap');
+    
+</style>
+<!-- Q&A -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script>
+        $(function(){
+      $(".flip").click(function(){
+          $(".panel").slideToggle("slow");
+      
+        });});
+      $(function(){
+      $(".flip1").click(function(){
+          $(".panel1").slideToggle("slow");
+        });});
+
+        $(function(){
+      $(".flip2").click(function(){
+          $(".panel2").slideToggle("slow");
+        });});
+
+        $(function(){
+      $(".flip3").click(function(){
+          $(".panel3").slideToggle("slow");
+        });});
+
+        $(function(){
+      $(".flip4").click(function(){
+          $(".panel4").slideToggle("slow");
+        });});
+
+        $(function(){
+      $(".flip5").click(function(){
+          $(".panel5").slideToggle("slow");
+        });});
+    </script>
+    
+<body>
+    
+ <!-- 頂端選單 -->
+ <nav >
+    
+        <div class="midd" ><a href="{% url 'index' %}">屬於你的衛教E聊</a></div>
+        <div class="welcome"></div>
+        {% comment %} 歡迎您{{user.username}} {% endcomment %}
+        {% comment %} <div class="login"><a href="{% url 'detail' %}">link</a></div> {% endcomment %}
+        <div class="login"><a href="{% url 'log_out' %}">登出</a></div>
+       
+       
+        
+   
+</nav>
+<a href="{% url 'chatbot' %}"><div id="chatt"> <img src="{% static 'image/chat.png' %}" alt="" width="50px" height="50px"> </div><a></div>
+<br>
+<!-- 首頁動態圖 文字 -->
+  <div>
+    
+      <div class="coverflow">
+        <a href='#'><img id="ph1" src="{% static 'image/ran1.jpg' %}" width="1600px" height="600px"></a>
+        <a href="#"><img id="ph2" src="{% static 'image/ran2.jpg' %}" width="1600px" height="600px"></a>
+        <a href="#"><img id="ph3" src="{% static 'image/ran3.png' %}" width="1600px" height="600px"></a>
+      </div>
+  </div>
+  
+
+
+    
+</div>
+
+<div class="nav">
+<div class="backk">
+    <ul>
+        <div class="bigger"><li><a href="{% url 'game' %}"><img src="{% static 'image/game.png' %}" alt=""></a>衛教資識王</li></div>
+        <li><a href="{% url 'chatbot' %}"><img src="{% static 'image/chat.png' %}" alt=""></a>衛教E聊</li>
+        <div class="bigger"><li><a href="{% url 'shop' %}"><img src="{% static 'image/shop.png' %}" alt=""></a>商品推薦</li></div>
+            
+    </ul>
+    
+    
+</div>
+</div>
+
+
+<div class="new">
+    💥最新公告
+</div>
+ <!-- 最新公告-->
+ <div class="">
+    <div>
+        <div class="flip"><span> 2024.05.30 |    <b>智慧E聊正式開放註冊使用囉  ⇩</b></span></div>
+        <div class="panel">智慧E聊正式開放註冊使用囉，快來體驗AI為您量身訂製的健康建議</div>
+    </div>
+    <div>
+        <div class="flip1"><span> 2024.05.23 |    <b>免費線上健康講座  ⇩</b></span></div>
+        <div class="panel1">即將舉辦免費的線上健康講座，主題涵蓋心理健康、營養搭配、運動訓練等，快來報名參加吧！<br></div>
+    </div>
+    <div>
+        <div class="flip2"><span> 2024.05.18 |    <b>一起參與運動挑戰賽  ⇩</b></span></div>
+        <div class="panel2">參加我們的運動挑戰賽，每天打卡完成指定運動項目，贏取豐富獎品，讓運動成為您生活的一部分。<br></div>
+    </div>
+    <div>
+        <div class="flip3"><span>2024.05.12 |    <b>年度健康檢查優惠活動  ⇩</b></span></div>
+        <div class="panel3">本月內預約年度健康檢查，享受八折優惠，讓我們一起關心您的身體健康。</div>
+    </div>
+    <div>
+        <div class="flip4"><span> 2024.05.01 |    <b>SSR疫苗接種資訊  ⇩</b></span></div>
+        <div class="panel4">SSR疫苗開放接種，已開放預約接種時間，接種SSR保護您和家人的健康。</div>
+    </div>
+   
+</div>
+
+
+
+
+
+
+
+
+
+<!-- 安全用藥-->
+<div class="secu" id="secu">
+    安全用藥
+</div>
+<div class="medicine">
+    <div class="m1">       
+        
+            <h2>👨‍⚕️生 病 找 醫 師 , 用 藥 找 藥 師👩‍⚕️<br></h2>
+            <p>&nbsp</p>
+            <div class="mm1"><b>⚠️注 意 藥 物 相 互 作 用⚠️</b><br>
+                <p>&nbsp</p>
+                同時使用多種藥物時,請向醫生或藥師咨詢可能的藥物相互作用,以避免不良反應</div>
+
+                <div class="mm1"><b>💊正 確 劑 量  ,  安 全 用 藥💊</b><br>
+                    <p>&nbsp</p> 
+                    遵守每次用藥的劑量規定,切勿因症狀加重而擅自增加用量,避免藥物過量</div>
+       
+    </div>
+    
+
+</div>
+
+
+
+<!--健康飲食-->
+<div class="heal" id="heal">
+    健康飲食
+</div>
+<div class="food">
+    <div class="rr">
+        <h3>🥗</h3>
+        <p><h1>蔬菜比例要增加</h1></p>
+        <p>火鍋湯品多加蔬菜</p>
+        <p>蔬菜攝取量增多,營養均衡促健康</p>
+        <p>每餐多吃蔬菜,讓你的身體更輕盈有活力！</p>
+    </div>
+
+    <div class="rr">
+        <h3>🐟</h3>
+        <p><h1>豆魚蛋肉少加工</h1></p>
+        <p>減少加工食品,自然營養更健康</p>
+        <p>天然食材，給你最純粹的美味與能量</p>
+        <p>讓你的飲食更安心放心~</p>
+    </div>
+
+    <div class="rr">
+        <h3>🥔</h3>
+        <p><h1>全榖雜糧未精緻</h1></p>
+        <p>未精緻全榖雜糧取代精緻澱粉</p>
+        <p>保留天然營養與纖維,助你維持健康體重</p>
+        <p>降低慢性病風險,打造健康飲食新習慣</p>
+        
+    </div>
+
+    <div class="rr">
+        <h3>🍎</h3>
+        <p><h1>水果每餐拳頭大</h1></p>
+        <p>水果取代零食點心,仍需控制攝取量</p>
+        <p>補充維生素和纖維</p>
+        <p>助你活力滿滿，輕鬆迎接每一天！</p>
+    </div>
+            
+    <div class="rr">
+        <h3>🍭</h3>
+        <p><h1>零食點心應適量</h1></p>
+        <p>多吃堅果,選擇健康零食</p>
+        <p>避免過量攝取糖分和脂肪</p>
+        <p>讓身體更健康</p>
+    </div>
+
+    <div class="rr">
+        <h3>🍻</h3>
+        <p><h1>飲料酒飲要控制</h1></p>
+        <p>飲料與酒飲適量為宜</p>
+        <p>以無糖飲品為主,控制飲用頻率</p>
+        <p>讓身體更輕盈,生活更健康</p>
+    </div>
+    
+
+</div>
+
+
+<!--運動生活-->
+<div class="runn" id="runn">
+    運動生活
+</div>
+<div class="life">
+    <div class="rr">
+        <h3>🚉</h3>
+        <p><h2>外出多利用大眾運輸工具</h2></p>
+        <p><h2>或步行至目的地</h2></p>
+        <p><h2>走路30分鐘消耗約100大卡的熱量！</h2></p>
+    </div>
+
+    <div class="rr">
+        <h3>🚶‍♂️</h3>
+        <p><h2>可以走樓梯就不要坐電梯</h2></p>
+        <p><h2>不但節省能源</h2></p>
+        <p><h2>還可以增加每天活動量</h2></p>
+    </div>
+
+    <div class="rr">
+        <h3>🐶</h3>
+        <p><h2>多和家人相約到戶外</h2></p>
+        <p><h2>或是可以帶著心愛的寵物</h2></p>
+        <p><h2>一同快走,一同享受健康活力！</h2> </p>
+    </div>
+
+    <div class="rr">
+        <h3>🏋️</h3>
+        <p><h2>利用空的寶特瓶</h2></p>
+        <p><h2>裝水或沙子替代啞鈴</h2></p>
+        <p><h2>訓練肌力,並依程度漸漸加入更多水或沙子</h2> </p>
+    </div>
+            
+    <div class="rr">
+        <h3>🤸‍♀️</h3>
+        <p><h2>上午、下午各做15分鐘健康操</h2></p>
+        <p><h2>累積30 分鐘也可消耗100大卡</h2> </p>
+    </div>
+
+    <div class="rr">
+        <h3>🚵‍♂️</h3>
+        <p><h2>約三五好友去踏青飲茶</h2></p>
+        <p><h2>不但能健身</h2></p>
+        <p><h2>也能增進彼此情誼</h2> </p>
+    </div>
+              
+            
+
+    
+
+</div>
+
+
+
+<!--心理健康-->
+<div class="ment" id="ment">
+    心理健康
+</div>
+<div class="hea">
+    <div class="men1">       
+        <h2>🙂快  樂  微 笑 五 步 驟 , 心 理 健 康 恆 長 久🥰<br></h2>
+        <div class="man1">
+            <h4><br>~ SMILE口訣 ~</h4>
+        </div>
+        <div class="letters">
+            <div class="letter">S <p><div class="qu">sleep <p>😴</p><p>睡得好</p></div></p></div>
+            <div class="letter">M <p><div class="qu">mobile <p>🤹‍♂️</p> <p>多動動</p></div></p></div>
+            <div class="letter">I<p><div class="qu">interact <p>👯‍♀️</p> <p>多交流</p></div></p></div>
+            <div class="letter">L<p><div class="qu">laugh <p>😍</p> <p>愛微笑</p></div></p></div>
+            <div class="letter">E<p><div class="qu">eat <p>🥦</p> <p>健康吃</p></div></p></div>
+        </div>
+        <br>
+        <br>
+        <br>
+        <h4>📞2 4 小 時 免 付 費 心 理 支 持 服 務 專 線 : 1 9 2 5 依 舊 愛 我<!--<div style="color: #2C73C5";> 1925</div>--></h4>
+    </div>
+  </div>
+
+<div class="clear"></div>
+<!-- 夫特 -->
+<footer>
+    <div class="footerr">
+       <!-- <section class="f1">
+           <div class="sd">屬於你的智慧E聊 </div>
+           <div class="slogan">~量身定制你的健康建議和指導~</div>
+           
+       </section>
+       <section class="f2">
+            <div class="hope">~歡迎使用衛教E聊~<br>
+                    希望衛教E聊能解決您的健康問題<br>願您在使用過程中能夠收穫滿滿<br>
+                    敬祝您健康快樂
+            </div>
+       </section> -->
+       <section class="f3">
+        <div class="copy">量身定制你的健康建議和指導<br>©YourOwnHealthEducation E Chat 2024</div>
+         
+            
+    </section>
+    </div>
+    <!-- <div class="foot">
+        <div class="scroll"> -->
+            <!-- <div class="text">
+             ⌁ 健 康 無 憂 , E 聊 在 手 ⌁  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp ⌁ 健 康 無 憂 , E 聊 在 手 ⌁   &nbsp&nbsp&nbsp&nbsp&nbsp  ⌁ 健 康 無 憂 , E 聊 在 手 ⌁     &nbsp&nbsp&nbsp&nbsp&nbsp  ⌁ 健 康 無 憂 , E 聊 在 手 ⌁   &nbsp&nbsp&nbsp&nbsp&nbsp  ⌁ 健 康 無 憂 , E 聊 在 手 ⌁     &nbsp&nbsp&nbsp&nbsp&nbsp
+            </div> -->
+            <!-- <div class="text">
+            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp ⌁ 健 康 無 憂 , E 聊 在 手 ⌁  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp ⌁ 健 康 無 憂 , E 聊 在 手 ⌁   &nbsp&nbsp&nbsp&nbsp&nbsp  ⌁ 健 康 無 憂 , E 聊 在 手 ⌁     &nbsp&nbsp&nbsp&nbsp&nbsp ⌁ 健 康 無 憂 , E 聊 在 手 ⌁     &nbsp&nbsp&nbsp&nbsp&nbsp     ⌁ 健 康 無 憂 , E 聊 在 手 ⌁     &nbsp&nbsp&nbsp&nbsp&nbsp
+            </div> -->
+            
+          </div> 
+          <!-- <marquee  direction="left" height="50" scrollamount="5" behavior="scroll" >
+            <p style="color:#09396a; font-size:20px; font-weight:200;">
+                ⌁ 健 康 無 憂 , E 聊 在 手 ⌁&nbsp&nbsp&nbsp&nbsp⌁ 健 康 無 憂 , E 聊 在 手 ⌁&nbsp&nbsp&nbsp&nbsp⌁ 健 康 無 憂 , E 聊 在 手 ⌁ &nbsp&nbsp&nbsp&nbsp⌁ 健 康 無 憂 , E 聊 在 手 ⌁ &nbsp&nbsp&nbsp&nbsp⌁ 健 康 無 憂 , E 聊 在 手 ⌁&nbsp&nbsp&nbsp&nbsp ⌁ 健 康 無 憂 , E 聊 在 手 ⌁ 
+
+            </p>
+        </marquee> -->
+   <!-- </div>
+</footer> -->
+<script>
+    function openNav() {
+      document.getElementById("car").style.width = "400px";
+      document.getElementById("main").style.marginLeft = "0px";
+    }
+    
+    function closeNav() {
+      document.getElementById("car").style.width = "0";
+      document.getElementById("main").style.marginLeft= "0px";
+    }
+    </script>
+       
+       <script>
+        function minus(number){
+            var num=Number(document.getElementsByClassName('qty')[number].value);
+            if(num>1){
+                document.getElementsByClassName('qty')[number].value= num-1;
+            }
+        }
+        function add(number){
+            var num=Number(document.getElementsByClassName('qty')[number].value);
+            if(num<100){
+                document.getElementsByClassName('qty')[number].value= num+1;
+            }
+        }
+    </script>
+    <script>
+        function star(obj){
+          document.getElementById('star').value = obj.value;
+                   }
+    </script>
+
+    
+</body>
+</html>

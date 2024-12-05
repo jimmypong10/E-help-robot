@@ -13,14 +13,7 @@
     </form> {% endcomment %}
 
   
-  {% if messages %}
-  <script>
-    {% for message in messages %}
-      alert("{{ message }}"); // 使用alert彈出訊息
-      window.location.href = "{% url 'index' %}";
-    {% endfor %}
- 
-  
+  {% if messages %}  
 </script>
  {% endif %}
 </body>
