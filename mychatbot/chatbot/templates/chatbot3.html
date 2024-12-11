@@ -13,7 +13,7 @@
     <!-- 頂端選單 -->
     <nav>
         <div class="midd">屬於你的衛教e聊</div>
-        <div class="welcome">[zoeeyyyyy]</div>
+        <div class="welcome">{{user.username}}</div>
         <div class="more">
             <img src="{% static 'images/more.png'%}" id="menuButton">
         </div>
@@ -80,9 +80,9 @@
         {% csrf_token %}
         <div class="userinput">
             <input type="text" class="form-control message-input" name="message" placeholder="輸入訊息...">
-            <button type="button" class="btn btn-primary btn-send" onclick="assistInput()">輔助輸入</button>
+            <button type="button" class="btn-auto" onclick="assistInput()" style="height: 44px;" >輔助輸入</button>
 
-            <button type="submit"><img src="{% static 'images/submit.png' %}" alt=""></button>
+            <button type="submit" class="btn-send"><img src="{% static 'images/submit.png' %}" alt=""></button>
         </div>
     </form>
     </section>

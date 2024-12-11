@@ -61,7 +61,7 @@ section{
     border: none;
     background-color: white;
 }
-
+/*
 .userinput button{
     flex: 0 0 auto;
     padding: 0.5% 1.2%;
@@ -77,7 +77,7 @@ section{
     border: none;
     height: 50px;
 }
-
+*/
 .message_contain{
     width: 95%;
     height: 600px;

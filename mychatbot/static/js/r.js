@@ -24,10 +24,11 @@ document.getElementById('consentCheckbox').addEventListener('change', function (
 
 // 確認同意書後執行儲存
 document.getElementById('agreeButton').addEventListener('click', function () {
-    alert('註冊完成！');
+    var url = document.getElementById("Url").getAttribute('data-url');
+    alert('註冊完成！將引導至登入畫面進行登入。');
     closeConsentModal(false); // 不顯示提醒
     // 導向登入畫面
-    window.location.href = 'login.html'; // 將 'login.html' 替換為你的登入頁面 URL
+    window.location.href = url; // 將 'login.html' 替換為你的登入頁面 URL
 });
 document.addEventListener('DOMContentLoaded', function () {
     // 選取所有 "其他" 選項的 checkbox
@@ -72,7 +73,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 function closeForm() {
     // 跳轉到 register.html
-    window.location.href = "register.html";
+    window.location.href = "{% url 'register'%}";
 }
 
 

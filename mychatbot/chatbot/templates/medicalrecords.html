@@ -1,13 +1,15 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>病歷</title>
-    <link rel="stylesheet" href="../assets/css/medicalrecords.css">
-    <link rel="stylesheet" href="../assets/css/nav.css">
+    <link rel="stylesheet" href="{% static 'css/medicalrecords.css'%}">
+    <link rel="stylesheet" href="{% static 'css/nav.css'%}">
 </head>
 <body>
+    <input type="hidden" id="Url" data-url="{% url 'login'%}" />
     <!-- 頂部區域 -->
     <nav>
         <div class="midd">

@@ -12,6 +12,11 @@ from django.contrib import messages
 # from fhirclient import client
 # Create your views here.
 def index(request):
+    print(request.user)
+    print(type(str(request.user)))
+    print(str(request.user)==str("admin"))
+    if str(request.user)==str("admin"):
+        return redirect('chatbotDoc')
     return render(request,"index.html")
 
 def register(request):
@@ -25,7 +30,7 @@ def register(request):
                 user = User.objects.create_user(username=username, email=email, password=password1)
                 user.save()
                 auth.login(request,user)
-                return redirect('index')
+                return redirect('medicalrecords')
              except:
                  error_msg ="註冊失敗"
                  return render(request, 'register.html',{'error_message':error_msg})
@@ -57,3 +62,5 @@ def game(request):
 
 def shop(request):
     return render(request,"product.html")
+def medicalrecords(request):
+    return render(request,"medicalrecords.html")

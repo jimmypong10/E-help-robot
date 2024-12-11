@@ -82,7 +82,7 @@ def handle_user_input(chats,user,user_input, collection):
             counter+=1
 
     response = ollama.embeddings(prompt=user_input, model="mxbai-embed-large")  # 生成用戶輸入的嵌入向量
-    results = collection.query(query_embeddings=[response["embedding"]], n_results=3)  # 在集合中查詢最相關的三個文件
+    results = collection.query(query_embeddings=[response["embedding"]], n_results=10)  # 在集合中查詢最相關的三個文件
     data = results['documents'][0]  # 獲取最相關的文件
     print(data)
     prompt="You are a medical assistant.Please organize the most frequently asked questions by users based on this data:"+str(data)+"with Tradionnal Chinese" #提示詞
